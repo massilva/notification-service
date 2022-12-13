@@ -1,5 +1,6 @@
 import { Replace } from 'src/helpers/replace';
 import { Content } from './content';
+import { Schedule } from './schedule';
 
 export interface NotificationProps {
   recipientId: string;
@@ -7,15 +8,22 @@ export interface NotificationProps {
   category: string;
   readAt?: Date | null; //Date, undefined ou null
   createdAt: Date;
+  scheduleAt: Schedule;
 }
 
 export class Notification {
   private props: NotificationProps;
 
-  constructor(props: Replace<NotificationProps, { createdAt?: Date }>) {
+  constructor(
+    props: Replace<
+      NotificationProps,
+      { createdAt?: Date; scheduleAt?: Schedule }
+    >,
+  ) {
     this.props = {
       ...props,
       createdAt: this.createdAt ?? new Date(),
+      scheduleAt: this.scheduleAt ?? new Schedule(new Date()),
     };
   }
 
@@ -53,5 +61,13 @@ export class Notification {
 
   public get createdAt(): Date {
     return this.props.createdAt;
+  }
+
+  public set scheduleAt(scheduleAt: Schedule) {
+    this.props.scheduleAt = scheduleAt;
+  }
+
+  public get scheduleAt(): Schedule {
+    return this.props.scheduleAt;
   }
 }
