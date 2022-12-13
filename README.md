@@ -6,9 +6,18 @@ Microsserviço de notificações desenvolvido no Ignite Lab de Node.js
 
 ## Rodando o app
 
+### Desenvolvimento
+
+#### Usando docker-compose direto
+
 ```bash
-# development
 $ docker-compose up -d web
+```
+
+#### Usando Makefile
+
+```bash
+$ make run
 ```
 
 ## License
