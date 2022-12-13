@@ -9,7 +9,7 @@ stop:
 build-dev: stop
 	docker-compose -f $(DOCKER_BASE_FILE) build
 
-run-and-build: build-dev
+build-and-run: build-dev
 	docker-compose -f $(DOCKER_BASE_FILE) up -d
 
 run:
