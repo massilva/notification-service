@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    restart: on-failure
+    # hostname: web1
+    command: npm run start:dev
+    ports:
+      - '9000:3000'
