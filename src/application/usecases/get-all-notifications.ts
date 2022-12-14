@@ -1,8 +1,10 @@
+import { Injectable } from '@nestjs/common';
 import { NoParams } from '../entities/no-params';
 import { Notification } from '../entities/notification';
 import { NotificationRepository } from '../repositories/notification';
 import { Usecase } from './usecase';
 
+@Injectable()
 export class GetAllNotifications implements Usecase<NoParams, Notification[]> {
   constructor(private notificationRepository: NotificationRepository) {}
 
