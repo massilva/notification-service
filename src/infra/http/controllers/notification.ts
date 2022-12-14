@@ -1,9 +1,9 @@
 import { Body, Controller, Post, Get } from '@nestjs/common';
-import { NoParams } from 'src/application/entities/no-params';
-import { Usecase } from 'src/application/usecases/usecase';
+import { NoParams } from '@application/entities/no-params';
+import { Usecase } from '@application/usecases/usecase';
 import { CreateNotificationBody } from '../dtos/create-notification-body';
-import { SendNotificationResponse } from 'src/application/entities/interfaces/send-notification/response';
-import { SendNotificationRequest } from 'src/application/entities/interfaces/send-notification/request';
+import { SendNotificationResponse } from '@application/entities/interfaces/send-notification/response';
+import { SendNotificationRequest } from '@application/entities/interfaces/send-notification/request';
 
 @Controller('notifications')
 export class NotificationController {
