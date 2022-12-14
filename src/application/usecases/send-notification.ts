@@ -1,6 +1,7 @@
 import { Content } from '../entities/content';
 import { Notification } from '../entities/notification';
 import { NotificationRepository } from '../repositories/notification';
+import { Usecase } from './usecase';
 
 interface SendNotificationRequest {
   recipientId: string;
@@ -12,7 +13,9 @@ interface SendNotificationResponse {
   notification: Notification;
 }
 
-export class SendNotification {
+export class SendNotification
+  implements Usecase<SendNotificationRequest, SendNotificationResponse>
+{
   constructor(private notificationRepository: NotificationRepository) {}
 
   async execute(
