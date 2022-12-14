@@ -1,14 +1,18 @@
 import { Body, Controller, Post, Get } from '@nestjs/common';
 import { NoParams } from 'src/application/entities/no-params';
-import { GetAllNotifications } from 'src/application/usecases/get-all-notifications';
-import { SendNotification } from 'src/application/usecases/send-notification';
+import { Usecase } from 'src/application/usecases/usecase';
 import { CreateNotificationBody } from '../dtos/create-notification-body';
+import { SendNotificationResponse } from 'src/application/entities/interfaces/send-notification/response';
+import { SendNotificationRequest } from 'src/application/entities/interfaces/send-notification/request';
 
 @Controller('notifications')
 export class NotificationController {
   constructor(
-    private sendNotification: SendNotification,
-    private getAllNotifications: GetAllNotifications,
+    private sendNotification: Usecase<
+      SendNotificationRequest,
+      SendNotificationResponse
+    >,
+    private getAllNotifications: Usecase<NoParams, Notification[]>,
   ) {}
 
   @Get()

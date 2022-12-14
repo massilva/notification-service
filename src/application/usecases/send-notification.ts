@@ -3,16 +3,8 @@ import { Content } from '../entities/content';
 import { Notification } from '../entities/notification';
 import { NotificationRepository } from '../repositories/notification';
 import { Usecase } from './usecase';
-
-interface SendNotificationRequest {
-  recipientId: string;
-  content: string;
-  category: string;
-}
-
-interface SendNotificationResponse {
-  notification: Notification;
-}
+import { SendNotificationResponse } from '../entities/interfaces/send-notification/response';
+import { SendNotificationRequest } from '../entities/interfaces/send-notification/request';
 
 @Injectable()
 export class SendNotification
