@@ -22,8 +22,8 @@ export class Notification {
   ) {
     this.props = {
       ...props,
-      createdAt: this.createdAt ?? new Date(),
-      scheduleAt: this.scheduleAt ?? new Schedule(new Date()),
+      createdAt: props.createdAt ?? new Date(),
+      scheduleAt: props.scheduleAt ?? new Schedule(new Date()),
     };
   }
 
