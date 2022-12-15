@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { Content } from '../entities/content';
-import { Notification } from '../entities/notification';
-import { NotificationRepository } from '../repositories/notification';
 import { Usecase } from './usecase';
-import { SendNotificationResponse } from '../entities/interfaces/send-notification/response';
-import { SendNotificationRequest } from '../entities/interfaces/send-notification/request';
+import { Injectable } from '@nestjs/common';
+import { NotificationRepository } from '../repositories/notification';
+import { Notification } from '@application/entities/notification';
+import { SendNotificationResponse } from '@application/entities/interfaces/send-notification/response';
+import { SendNotificationRequest } from '@application/entities/interfaces/send-notification/request';
+import { Content } from '@application/entities/content';
 
 @Injectable()
 export class SendNotification
@@ -24,7 +24,6 @@ export class SendNotification
     });
 
     await this.notificationRepository.create(notification);
-
     return {
       notification,
     };

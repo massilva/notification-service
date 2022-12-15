@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { Replace } from '@helpers/replace';
 import { Content } from './content';
-import { Schedule } from './schedule';
+import { Schedule, ScheduleIn } from './schedule';
 
 export interface NotificationProps {
   recipientId: string;
@@ -21,12 +21,13 @@ export class Notification {
       NotificationProps,
       { createdAt?: Date; scheduleAt?: Schedule }
     >,
+    id?: string,
   ) {
-    this._id = randomUUID();
+    this._id = id ?? randomUUID();
     this.props = {
       ...props,
       createdAt: props.createdAt ?? new Date(),
-      scheduleAt: props.scheduleAt ?? new Schedule(new Date()),
+      scheduleAt: props.scheduleAt ?? new ScheduleIn(new Date()),
     };
   }
 

@@ -1,4 +1,4 @@
-import { Notification } from '../../notification';
+import { Notification } from '@application/entities/notification';
 
 export interface SendNotificationResponse {
   notification: Notification;

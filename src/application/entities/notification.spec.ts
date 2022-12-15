@@ -1,6 +1,6 @@
 import { Content } from './content';
 import { Notification } from './notification';
-import { Schedule } from './schedule';
+import { Schedule, ScheduleIn } from './schedule';
 
 describe('Notification', () => {
   it('should be able to create a notification', () => {
@@ -24,7 +24,7 @@ describe('Notification', () => {
         content: new Content('Você recebeu uma solicitação de amizade.'),
         category: 'social',
         recipientId: 'example-id',
-        scheduleAt: new Schedule(now),
+        scheduleAt: new ScheduleIn(now),
       });
     }).toBeTruthy();
   });
